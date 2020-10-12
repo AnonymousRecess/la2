@@ -1,5 +1,5 @@
 Object subclass: Customer [
-   n
+   |n|
 
     Customer class [
         new [
@@ -7,21 +7,21 @@ Object subclass: Customer [
         ]
     ]
     
-    init: [
-        n:= ""
+    init [
+        n:= ''
     ]
 
     setName: name [
         n:=name
     ] 
 
-    toString: n [
+    toString [
         ^n
     ]
 
 ]
 
-name custn := Customer new.
-nameToSet := "Jack".
-(custn setName) : nameToSet.
-(custn toString) printNL
+ 
+ custn:= Customer new.
+ custn setName: 'Jack'.
+ (custn toString) printNl
