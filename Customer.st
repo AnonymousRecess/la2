@@ -21,7 +21,7 @@ Object subclass: Customer [
 
 ]
 
- 
+ |custn|
  custn:= Customer new.
  custn setName: 'Jack'.
  (custn toString) printNl
