@@ -1,18 +1,18 @@
 Object subclass: Customer [
-   |n name|
+   |n name| "Define instance variables n and name"
 
-    Customer class [
+    Customer class [    "Constructor for Customer"
         new: n [
             ^self new init: n
         ]
     ]
     
-    init: n [
+    init: n [   "Pass parameter for name instance variable for constructor"
         name := n
     ]
 
     toString [
-        ^name
+        ^name   "return name"
     ]
 
 ]
