@@ -1,14 +1,14 @@
 Account subclass: CheckingAccount [
     
     CheckingAccount class [
-        new: acctNumber number: cust customer: bal balance [
-            ^super new init: acctNumber number: cust customer: bal balance
+        new: accBalance customer: accCust number: acctNumb [
+            ^self new init: accBalance customer: accCust number: acctNumb
         ]
     ]
-    init: acctNumber number: cust customer: bal balance [
-        balance:= bal.
-        customer:= cust.
-        number:= acctNumber
+    init: accBalance customer: accCust number: acctNumb [
+        balance := accBalance.
+        customer := accCust.
+        number := acctNumb
     ]
     accrue: rate [
         

@@ -2,15 +2,15 @@ Account subclass: SavingsAccount [
     |interest|
 
     SavingsAccount class [
-        new: acctNumber number: cust customer: bal balance [
-            ^super new init: acctNumber number: cust customer: bal balance "might be self, not super"
+        new: accBalance customer: accCust number: acctNumb [
+            ^self new init: accBalance customer: accCust number: acctNumb
         ]
     ]
-    init: acctNumber number: cust customer: bal balance [
-        interest:= 0.
-        balance:= bal.
-        customer:= cust.
-        number:= acctNumber
+    init: accBalance customer: accCust number: acctNumb [
+        balance := accBalance.
+        customer := accCust.
+        number := acctNumb.
+        interest:= 0
     ]
     accrue: rate [
         interest:= interest + ( balance * rate).

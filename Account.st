@@ -4,15 +4,15 @@ Object subclass: Account [
     |balance|
 
     Account class [
-        new [
-            ^super new init
+        new: b customer: c number: n [
+            ^super new init: b customer: c number: n
         ]
     ]
 
-    init [
-        number:= ''.
-        customer:=''.
-        balance:=''
+    init: b customer: c number: n [
+        number:= n.
+        customer:=c.
+        balance:=b
     ]
 
     accrue: rate [
@@ -31,6 +31,6 @@ Object subclass: Account [
     ]
     
     toString [
-        ^number asString, ':', customer asString, ':', balance asString
+        ^number asString, ':', customer toString, ':', balance asString
     ]
 ]

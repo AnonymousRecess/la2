@@ -1,6 +1,5 @@
 Object subclass: Bank [
     |accounts|
-    |count|
 
     Bank class [
         new [
@@ -9,30 +8,36 @@ Object subclass: Bank [
     ]
 
     init [
-        count:=0
-        accounts:= Set new !
+        accounts:= Set new 
     ]
 
     addTo: account [
-        accounts add: account !
+        accounts add: account 
     ]
 
     accrue: rate [
-        |i|
-        i:= count.
         accounts do: [ :v |
-            (i>0)
-                ifTrue: [ v accrue: rate ]
+                v accrue: rate
         ]. 
-
-        toString: info [
-            |r i|
-            i = count.
-            info do: [ :v |
-                (i>0)
-                    ifTrue: [ r asString, ':', v asString]
+    ]
+        toString [
+           |r| r:=''.
+            accounts do: [ :v |
+                r:= r, v toString, (Character nl asString) 
             ].
             ^r
         ]
-    ]
+
+   
+
+
 ]
+   
+    
+    
+    |bank| bank:= Bank new.
+    |c| c:= Customer new: 'Ann'.
+    bank addTo: (CheckingAccount new: 100.00 customer: c number: 01001).
+    bank addTo: (SavingsAccount new: 200.00 customer: c number: 01002).
+    bank accrue: 0.02.
+    bank toString printNl

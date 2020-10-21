@@ -1,27 +1,18 @@
 Object subclass: Customer [
-   |n|
+   |n name|
 
     Customer class [
-        new [
-            ^super new init
+        new: n [
+            ^self new init: n
         ]
     ]
     
-    init [
-        n:= ''
+    init: n [
+        name := n
     ]
 
-    setName: name [
-        n:=name
-    ] 
-
     toString [
-        ^n
+        ^name
     ]
 
 ]
-
- |custn|
- custn:= Customer new.
- custn setName: 'Jack'.
- (custn toString) printNl
